@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BOX</title>
+    <style>
+        .container {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: move 3s infinite linear;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(0 0 0 / 52%);
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid white;
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .top {
+            transform: rotateX(-90deg) translateZ(100px);
+
+        }
+
+        .bottom {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .left {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .right {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotateY(1turn) rotateX(1turn);
+            }
+
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .cube:hover {
+            animation: pulsate 1s infinite;
+        }
+
+    </style>
+</head>
+<body>
+<div class="center">
+    <div class="container">
+        <div class="cube">
+            <div class="face  front">FRONT</div>
+            <div class="face  back">BACK</div>
+            <div class="face  top">TOP</div>
+            <div class="face  bottom">BOTTOM</div>
+            <div class="face  left">LEFT</div>
+            <div class="face  right">RIGHT</div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
